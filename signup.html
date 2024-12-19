@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerFit Gym - Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .signup-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group input.error {
+            border-color: red;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .form-group input.error + .error-message {
+            display: block;
+        }
+
+        .form-group .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background: #ff4444;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #ff2222;
+        }
+
+        .success-message {
+            color: green;
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name">
+                <div class="error-message">Name is required.</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <div class="error-message">Valid email is required.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter a password">
+                <div class="error-message">Password must be at least 6 characters long.</div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I agree to the terms and conditions</label>
+                </div>
+                <div class="error-message">You must agree to the terms.</div>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="success-message">Signup successful! Welcome to PowerFit Gym.</div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Input fields
+            const nameField = document.getElementById('name');
+            const emailField = document.getElementById('email');
+            const passwordField = document.getElementById('password');
+            const termsField = document.getElementById('terms');
+
+            // Validation flags
+            let isValid = true;
+
+            // Reset errors
+            const resetError = (field) => {
+                field.classList.remove('error');
+                field.nextElementSibling.style.display = 'none';
+            };
+
+            // Set errors
+            const setError = (field, message) => {
+                field.classList.add('error');
+                field.nextElementSibling.style.display = 'block';
+                field.nextElementSibling.textContent = message;
+                isValid = false;
+            };
+
+            // Validate Name
+            resetError(nameField);
+            if (nameField.value.trim() === '') {
+                setError(nameField, 'Name is required.');
+            }
+
+            // Validate Email
+            resetError(emailField);
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailField.value.trim())) {
+                setError(emailField, 'Valid email is required.');
+            }
+
+            // Validate Password
+            resetError(passwordField);
+            if (passwordField.value.length < 6) {
+                setError(passwordField, 'Password must be at least 6 characters long.');
+            }
+
+            // Validate Terms
+            const termsContainer = termsField.parentNode.parentNode;
+            resetError(termsField);
+            if (!termsField.checked) {
+                setError(termsField, 'You must agree to the terms.');
+            }
+
+            // If valid, show success message
+            if (isValid) {
+                document.querySelector('.success-message').style.display = 'block';
+                setTimeout(() => {
+                    alert('Welcome to PowerFit Gym! Your account has been created successfully.');
+                    window.location.reload();
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>

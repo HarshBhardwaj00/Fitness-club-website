@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerFit Gym - Your Path to Fitness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        nav {
+            background: #333;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .trainer-card {
+            text-align: center;
+        }
+
+        .trainer-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .schedule {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .schedule th, .schedule td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .schedule th {
+            background: #f5f5f5;
+        }
+
+        .membership-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #333;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #ff4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff2222;
+        }
+
+        .blog-post {
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#trainers">Trainers</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="signup.html">Sign Up</a></li> <!-- Add this line -->
+        </ul>
+    </nav>
+    
+    
+    <header class="header" id="home">
+        <h1>PowerFit Gym</h1>
+        <p>Transform Your Life Through Fitness</p>
+        <a href="#membership" class="btn">Join Now</a>
+    </header>
+    
+    <section class="section" id="classes">
+        <div class="container">
+            <h2>Class Schedule</h2>
+            <table class="schedule">
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Wednesday</th>
+                    <th>Friday</th>
+                </tr>
+                <tr>
+                    <td>6:00 AM</td>
+                    <td>HIIT</td>
+                    <td>Yoga</td>
+                    <td>Spin</td>
+                </tr>
+                <tr>
+                    <td>9:00 AM</td>
+                    <td>Pilates</td>
+                    <td>Boxing</td>
+                    <td>Zumba</td>
+                </tr>
+                <tr>
+                    <td>5:00 PM</td>
+                    <td>CrossFit</td>
+                    <td>HIIT</td>
+                    <td>Boxing</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="section" id="trainers" style="background: #f9f9f9;">
+        <div class="container">
+            <h2>Our Trainers</h2>
+            <div class="grid">
+                <div class="card trainer-card">
+                    <img src="women_trainer.png" alt="Sarah Johnson" class="trainer-img">
+                    <h3>Sarah Johnson</h3>
+                    <p>Certified Personal Trainer</p>
+                    <p>Specializes in HIIT and Strength Training</p>
+                </div>
+                <div class="card trainer-card">
+                    <img src="man_trainer.png" alt="Mike Chen" class="trainer-img">
+                    <h3>Mike Chen</h3>
+                    <p>CrossFit Level 2 Trainer</p>
+                    <p>Olympic Weightlifting Expert</p>
+                </div>
+                <div class="card trainer-card">
+                    <img src="woman_trainer.png" alt="Lisa Patel" class="trainer-img">
+                    <h3>Lisa Patel</h3>
+                    <p>Yoga Instructor</p>
+                    <p>Specializes in Mobility and Recovery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="membership">
+        <div class="container">
+            <h2>Membership Plans</h2>
+            <div class="grid">
+                <div class="card membership-card">
+                    <h3>Basic</h3>
+                    <div class="price">₹889/mo</div>
+                    <ul>
+                        <li>Gym Access</li>
+                        <li>Basic Equipment</li>
+                        <li>Locker Room Access</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Plan</a>
+                </div>
+                <div class="card membership-card">
+                    <h3>Premium</h3>
+                    <div class="price">₹999/mo</div>
+                    <ul>
+                        <li>All Basic Features</li>
+                        <li>Group Classes</li>
+                        <li>Fitness Assessment</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Plan</a>
+                </div>
+                <div class="card membership-card">
+                    <h3>Elite</h3>
+                    <div class="price">₹1999/mo</div>
+                    <ul>
+                        <li>All Premium Features</li>
+                        <li>Personal Training</li>
+                        <li>Nutrition Consultation</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="blog" style="background: #f9f9f9;">
+        <div class="container">
+            <h2>Fitness Tips Blog</h2>
+            <div class="grid">
+                <article class="card blog-post">
+                    <h3>5 Essential Post-Workout Recovery Tips</h3>
+                    <p>Post-workout recovery is crucial for maximizing 
+                        performance and preventing injury. First, rehydrate with water or an 
+                        electrolyte drink to replace fluids lost during exercise. Second, refuel 
+                        your muscles with a balanced meal or snack containing protein and carbohydrates 
+                        to support muscle repair and replenish glycogen stores. Third, prioritize rest and 
+                        sleep, as these are essential for the body to recover and repair. Fourth, consider 
+                        stretching or foam rolling to improve flexibility and reduce muscle tightness. Lastly, 
+                        incorporating light activity, like walking or swimming, can help improve circulation
+                         and speed up the recovery process.</p>
+                </article>
+                <article class="card blog-post">
+                    <h3>Nutrition Guide for Muscle Building</h3>
+                    <p>A proper nutrition plan is essential for muscle building. Start by 
+                        consuming an adequate amount of protein, ideally 1.2 to 2.2 grams 
+                        per kilogram of body weight, to support muscle repair and growth. 
+                        Include complex carbohydrates like whole grains, fruits, and 
+                        vegetables to provide the energy needed for intense workouts and 
+                        replenish glycogen stores. Healthy fats, found in sources like 
+                        avocados, nuts, and olive oil, are also vital for hormone 
+                        production and overall health. Don’t forget to stay hydrated, 
+                        as water is key for muscle function and recovery. Finally, eat 
+                        balanced meals throughout the day and consider timing your 
+                        nutrition around workouts to optimize gains.</p>
+                </article>
+                <article class="card blog-post">
+                    <h3>Beginner's Guide to HIIT</h3>
+                    <p>High-Intensity Interval Training (HIIT) is an effective workout for 
+                        beginners looking to improve fitness and burn fat. Start by 
+                        incorporating short bursts of intense exercise followed by brief 
+                        recovery periods, typically lasting 20 to 30 seconds of work and 
+                        10 to 30 seconds of rest. Choose simple exercises like jumping 
+                        jacks, squats, or sprints to get started, gradually increasing 
+                        intensity as your fitness improves. Ensure proper warm-up and 
+                        cool-down to prevent injury. Aim for 2-3 sessions per week to 
+                        allow your body to adjust, and listen to your body, adjusting the 
+                        intensity and duration as needed. With consistency, HIIT can 
+                        deliver quick results.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
